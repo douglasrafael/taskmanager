@@ -1,0 +1,34 @@
+@mixin animate($duration: 1s, $display: block){
+    animation-duration: $duration;
+    display: $display;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  @include animate;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  @include animate;
+}

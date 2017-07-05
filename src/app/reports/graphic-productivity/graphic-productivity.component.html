@@ -1,0 +1,23 @@
+<div class="row">
+  <menu-nav [isProductivity]="true" (notifyItemMenuClicked)="onNotifyItemMenuClicked($event)" class="col s12 m3 l3"></menu-nav>
+
+  <div class="col s12 m9 l9 card box-chart">
+    <!--NO DATA MESSAGE-->
+    <no-data *ngIf="!tasks" [message]="noDataMessage" class="fadeIn"></no-data>
+    <section *ngIf="tasks">
+      <div class="card-content">
+        <span class="card-title">{{ 'REPORTS.TITLE-PRODUCTIVITY' | translate: {value: currentYear} }}</span>
+        <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [legend]="chartLegend" [options]="chartOptions" [colors]="chartColor"
+          [chartType]="chartType" class="chart"></canvas>
+      </div>
+
+      <div class="card-action">
+        <h5>{{ 'SPECIFICATION' | translate }}</h5>
+        <div [innerHTML]="specificationContent"></div>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+

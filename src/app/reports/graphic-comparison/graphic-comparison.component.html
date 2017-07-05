@@ -1,0 +1,22 @@
+<div class="row">
+  <menu-nav [isProductivity]="false" class="col s12 m3 l3"></menu-nav>
+
+  <div class="col s12 m9 l9 card box-chart">
+    <!--NO DATA MESSAGE-->
+    <no-data *ngIf="!tasks" [message]="noDataMessage" class="fadeIn"></no-data>
+
+    <section *ngIf="tasks">
+      <div class="card-content">
+        <span class="card-title">{{ 'REPORTS.TITLE-COMPARISON' | translate }}</span>
+        <canvas baseChart [data]="chartData" [labels]="chartLabels" [options]="chartOptions" [chartType]="chartType" [colors]="chartColor"
+          class="chart center-block"></canvas>
+      </div>
+
+      <div class="card-action">
+        <h5>{{ 'SPECIFICATION' | translate }}</h5>
+        <div [innerHTML]="specificationContent"></div>
+      </div>
+    </section>
+  </div>
+
+</div>

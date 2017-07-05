@@ -1,0 +1,106 @@
+<div class="row">
+  <form materialize class="card-panel" [attr.disabled]="formProcessing?true:null" [formGroup]="taskForm" (ngSubmit)="taskForm.valid && onSubmit()"
+    novalidate id="taskForm">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">subtitles</i>
+        <input [attr.disabled]="formProcessing?true:null" type="text" [(ngModel)]="task.title" formControlName="title" name="title"
+          class="validate" required>
+        <label for="title" [class.active]="task.title">{{ 'TITLE' | translate }}</label>
+        <control-messages class="error-input ipt-icon" [control]="taskForm.controls.title"></control-messages>
+      </div>
+
+      <div class="input-field col s12">
+        <i class="prefix material-icons">comment</i>
+        <textarea [(ngModel)]="task.description" [attr.disabled]="formProcessing?true:null" formControlName="description" name="description"
+          class="materialize-textarea" data-length="600"></textarea>
+        <label for="description" [class.active]="task.description">{{ 'DESCRIPTION' | translate }}</label>
+        <control-messages class="error-input ipt-icon" [control]="taskForm.controls.description"></control-messages>
+      </div>
+
+      <div class="input-field col s12 m6">
+        <i class="fa fa-list-ol material-icons prefix" aria-hidden="true"></i>
+        <select required [(ngModel)]="task.priority" [attr.disabled]="formProcessing?true:null" materialize="material_select" formControlName="priority"
+          name="priority">
+          <option value="" disabled>{{ 'PRIORITY?' | translate }}</option>
+          <option value="3">{{ 'PRIORITY-3' | translate }}</option>
+          <option value="2">{{ 'PRIORITY-2' | translate }}</option>
+          <option value="1">{{ 'PRIORITY-1' | translate }}</option>
+        </select>
+        <label for="priority">{{ 'PRIORITY' | translate }}</label>
+        <control-messages class="error-input ipt-icon" [control]="taskForm.controls.priority"></control-messages>
+      </div>
+
+      <div class="input-field col s12 m6">
+        <i class="material-icons prefix fa fa-calendar" aria-hidden="true"></i>
+        <input type="text" [ngModel]="task.completionDate | date: getFormatDate(true)" [attr.disabled]="formProcessing?true:null"
+          name="completionDate" formControlName="completionDate" materialize="pickadate" [materializeParams]="[{format: getFormatDate(false)}]">
+        <label for="completionDate" [class.active]="task.completionDate">{{ 'DATE-COMPLETION' | translate }}</label>
+        <control-messages class="error-input ipt-icon" [control]="taskForm.controls.completionDate"></control-messages>
+      </div>
+
+      <div class="input-field col s12 m12">
+        <i class="fa fa-tags material-icons prefix" aria-hidden="true"></i>
+        <div class="chips chips-autocomplete" [attr.disabled]="formProcessing?true:null" materialize="material_chip"></div>
+        <label for="labels" class="active" [class.active]="task.labels">{{ 'TAGS' | translate }}</label>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="switch">
+        <strong>{{ 'CREATE-ALERT' | translate }}</strong>
+        <label><input type="checkbox" (click)="onBoxNotice()" [checked]="showBoxNotice"> <span class="lever"></span></label>
+      </div>
+
+      <div *ngIf="showBoxNotice" class="box-notice fadeIn">
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">today</i>
+          <input type="text" [ngModel]="task.noticeDate | date: getFormatDate(true)" [attr.disabled]="formProcessing?true:null" name="noticeDate"
+            formControlName="noticeDate" materialize="pickadate" [materializeParams]="[{format: getFormatDate(false)}]">
+          <label for="noticeDate" [class.active]="task.noticeDate">{{ 'DATE-COMPLETION' | translate }}</label>
+          <control-messages *ngIf="showBoxNotice" class="error-input ipt-icon" [control]="taskForm.controls.noticeDate"></control-messages>
+        </div>
+
+        <div class="input-field col s12 m6 l6">
+          <i class="material-icons prefix">schedule</i>
+          <input name="noticeHour" [attr.disabled]="formProcessing?true:null" [ngModel]="task.noticeDate | date: 'HH:mm'" [materializeParams]="paramsPickatime" materialize="pickatime"
+            (ngModelChange)="changedTime($event)" formControlName="noticeHour" class="validate" type="text" class="pickatime">
+          <label for="noticeHour" id="noticeHour" [class.active]="task.noticeDate">{{ 'ALERT-HOUR' | translate }}</label>
+          <control-messages *ngIf="showBoxNotice" class="error-input ipt-icon" [control]="taskForm.controls.noticeHour"></control-messages>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row checkIsFinalized">
+      <input type="checkbox" [(ngModel)]="task.isFinalized" [attr.disabled]="formProcessing?true:null" formControlName="isFinalized"
+        name="isFinalized" id="isFinalized" />
+      <label for="isFinalized"><strong>{{ 'TASK-CHECK-FINALIZED' | translate }}</strong></label>
+    </div>
+
+    <div *ngIf="taskForm.value.isFinalized" class="row fadeIn">
+      <div class="file-field input-field col s12">
+        <div class="btn">
+          <span>{{ 'FILE-SELECT' | translate }}</span>
+          <input (change)="handleSelectFile($event)" value="hum" [attr.disabled]="formProcessing?true:null" type="file" name="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12 m3 right">
+        <button type="submit" [disabled]="taskForm.invalid" [ngClass]="{'btn-processing': formProcessing}" class="btn btn-large waves-effect waves-light col s12">
+           <span class="btn-text">{{ textButtonSend }}</span>
+        </button>
+      </div>
+      <div class="input-field col s12 m3 right">
+        <a (click)="doBack()" type="cancel" class="btn btn-large grey waves-effect waves-light col s12">{{ 'CANCEL' | translate }}</a>
+      </div>
+    </div>
+
+  </form>
+</div>

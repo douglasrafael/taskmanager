@@ -1,0 +1,47 @@
+
+.container-cad-user {
+    max-width: 350px;
+}
+
+.box-cad-user {
+    margin-top: 50px;
+    padding: 15px 15px 30px 15px;
+
+    .row {
+        margin: 0px auto;
+    }
+
+    .login-form-text {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .remember-text {
+        margin-bottom: 30px;
+        margin-left: -4px !important;
+    }
+
+    .input-field > i {
+        margin-top: 5px;
+    }
+
+    .avatar {
+        margin: 0 0 20px 0;
+
+    }
+}
+
+#imageUpload {
+    display: none;
+}
+
+img {
+    cursor: pointer;
+}
+
+#profile-container img {
+    width: 130px;
+    height: 130px;
+}

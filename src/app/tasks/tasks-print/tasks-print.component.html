@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col s12 m12 l3 card">
+    <div class="card-content">
+      <span class="card-title">{{ 'PRINT-SELECT-TITLE' | translate }}:</span>
+
+      <div class="ipt-option">
+        <input type="radio" name="param" [(ngModel)]="param" id="today" value="today" />
+        <label for="today">{{ 'FOR-TODAY' | translate }}</label>
+      </div>
+
+      <div class="ipt-option">
+        <input type="radio" name="param" [(ngModel)]="param" id="seven" value="seven" />
+        <label for="seven">{{ 'FOR-SEVEN-DAYS' | translate }}</label>
+      </div>
+
+      <div class="ipt-option">
+        <input type="radio" name="param" [(ngModel)]="param" id="expired" value="expired" />
+        <label for="expired">{{ 'OVERDUE' | translate }}</label>
+      </div>
+
+      <div class="ipt-option">
+        <input type="radio" name="param" [(ngModel)]="param" id="archived" value="archived" />
+        <label for="archived">{{ 'ARCHIVED' | translate }}</label>
+      </div>
+
+      <div class="ipt-option">
+        <input type="radio" name="param" [(ngModel)]="param" id="all" value="all" />
+        <label for="all">{{ 'ALL' | translate }}</label>
+      </div>
+    </div>
+
+    <div class="card-action">
+      <div class="row">
+        <button (click)="generateDoc()" class="btn waves-effect waves-light col s12 margin-b-10">{{ 'GENERATE-PDF' | translate }}</button>
+        <button [disabled]="!outputDoc" (click)="downloadDoc()" class="btn waves-effect waves-light col s12">{{ 'DOWNLOAD-PDF' | translate }}</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!--OUTPUT DOC-->
+  <div id="wrapper" class="col s12 m12 l9 box-output-doc">
+    <no-data *ngIf="noDataMessage" [message]="noDataMessage" class="fadeIn"></no-data>
+    <embed class="outputDoc" *ngIf="outputDoc" id="output" [src]="outputDoc" type="application/pdf" />
+  </div>
+</div>

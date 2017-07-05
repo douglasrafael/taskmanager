@@ -1,0 +1,67 @@
+<div class="bg-dark absolute">
+  <div class="container container-cad-user">
+    <div class="row">
+      <div class="col s12 m12 l12 z-depth-4 card-panel box-cad-user">
+        <div class="row">
+          <p class="center login-form-text">{{ 'USER-REGISTRATRION' | translate }}</p>
+        </div>
+
+        <form name="userForm" id="userForm" [formGroup]="userForm" (ngSubmit)="userForm.valid && signup()" enctype="multipart/form-data" novalidate>
+          <div class="row">
+            <div class="input-field col s12 center avatar">
+              <div id="profile-container">
+                <img id="userImage" (click)="openDialogImage()" [src]="avatarUrl ? avatarUrl : '../../assets/images/avatar.png'" alt="avatar" class="circle responsive-img valign profile-image-login">
+              </div>
+              <input name="avatar" formControlName="avatar" [attr.disabled]="formProcessing?true:null" id="imageUpload" (change)="handleSelectImage($event)" type="file" capture accept="image/*">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6 l6">
+              <input type="text" name="firstName" [attr.disabled]="formProcessing?true:null" class="validate" formControlName="firstName">
+              <label for="firstname">{{ 'FIRST-NAME' | translate }}</label>
+              <control-messages class="error-input" [control]="userForm.controls.firstName"></control-messages>
+            </div>
+
+            <div class="input-field col s12 m6 l6">
+              <input type="text" name="lastName" [attr.disabled]="formProcessing?true:null" class="validate" formControlName="lastName">
+              <label for="lastname">{{ 'LAST-NAME' | translate }}</label>
+              <control-messages class="error-input" [control]="userForm.controls.lastName"></control-messages>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="email" name="email" [attr.disabled]="formProcessing?true:null" class="validate" formControlName="email">
+              <label for="email">{{ 'EMAIL' | translate }}</label>
+              <control-messages class="error-input" [control]="userForm.controls.email"></control-messages>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6 l6">
+              <input type="password" name="password" [attr.disabled]="formProcessing?true:null" class="validate" formControlName="password">
+              <label for="password">{{ 'PASSWORD' | translate }}</label>
+              <control-messages class="error-input" [control]="userForm.controls.password"></control-messages>
+            </div>
+
+            <div class="input-field col s12 m6 l6">
+              <input type="password" name="confirmPassword" class="validate" [attr.disabled]="formProcessing?true:null" formControlName="confirmPassword">
+              <label for="confirm password">{{ 'CONFIRM-PASSWORD' | translate }}</label>
+              <control-messages class="error-input" [control]="userForm.controls.confirmPassword"></control-messages>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button [disabled]="userForm.invalid" [ngClass]="{'btn-processing': formProcessing}" class="btn waves-effect waves-light col s12 btn-large">{{ 'REGISTER' | translate }}</button>
+            </div>
+            <div class="input-field col s12">
+              <a routerLink="/login" class="btn btn-large grey waves-effect waves-light col s12">{{ 'CANCEL' | translate }}</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

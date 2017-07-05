@@ -1,0 +1,36 @@
+<div class="row">
+  <menu-nav class="col s12 m3 l3"></menu-nav>
+
+  <div class="col s12 m9 l9 card">
+
+    <div class="col s12 m4 l4 title">
+      <h4 class="flow-text center red-text text-darken-3"><strong>{{ 'ATTENTION' | translate }}</strong></h4>
+      <p class="center" [innerHTML]="'REMOVE-ACCOUNT-ALERT' | translate: {value: user?.email}"></p>
+    </div>
+
+    <div class="col s12 m8 l8">
+      <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+        <div class="input-field col s12 m12 l12">
+          <input type="text" name="email" [value]="user?.email" disabled>
+        </div>
+
+        <div class="input-field col s12 m12 l12">
+          <input type="password" name="password" class="validate" formControlName="password" [attr.disabled]="formProcessing?true:null">
+          <label for="password">{{ 'CONFIRM-PASSWORD' | translate }}</label>
+          <control-messages class="error-input" [control]="form.controls.password"></control-messages>
+        </div>
+
+        <div class="input-field col s12 m12 l12 box-confirm">
+          <input type="checkbox" id="confirm" formControlName="confirm" name="confirm">
+          <label for="confirm">{{ 'REMOVE-ACCOUNT-CONFIRM' | translate }}</label>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12 m6 l6 right">
+            <button [disabled]="form.invalid || !form.value.confirm" [ngClass]="{'btn-processing': formProcessing}" class="btn waves-effect waves-light col s12 btn-large">{{ 'REMOVE-MY-ACCOUNT' | translate }}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

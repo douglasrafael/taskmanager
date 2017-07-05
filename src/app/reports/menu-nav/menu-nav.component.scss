@@ -1,0 +1,25 @@
+.collection { background-color: #fff; }
+
+.box-period { margin-bottom: 3rem; }
+.params { margin-bottom: 2rem; }
+
+.box-period, .params {
+    padding: 1rem;
+
+    .title {
+        text-align: center;
+        margin-top: 1rem; 
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    .dateEnd {
+        margin-top: 0.2rem;
+    }
+
+    [type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+        padding-left: 1.8rem;
+        margin-right: 1rem;
+    }
+}
