@@ -162,18 +162,14 @@
         "CONTENT-SEARCH": ""
     },
     "REPORTS": {
-<<<<<<< HEAD
         "TITLE-PRODUCTIVITY": "Relatório de produtividade - Tarefas arquivadas/concluídas",
-=======
-        "TITLE-PRODUCTIVITY": "Relatório de produtividade",
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
         "TITLE-COMPARISON": "Relatório de atividades ativas, em atraso e arquivadas",
         "TITLE-ADDED": "Relatório de atividades adicionadas no ano de {{value}}",
         "TASKS-ADDED": "Tarefas adicionadas",
         "PARAMETER": "Parâmetros",
         "MENU-ITEM-PRODUCTIVITY": "Produtividade",
         "MENU-ITEM-ADDED": "Adicionadas",
-        "MENU-ITEM-COMPARISON": "Ativas/Atrasadas/Arquivadas",
+        "MENU-ITEM-COMPARISON": "Geral",
         "WEEK-CURRENT": "Semana atual",
         "MONTH-CURRENT": "Mês atual",
         "YEAR-CURRENT": "Ano atual"

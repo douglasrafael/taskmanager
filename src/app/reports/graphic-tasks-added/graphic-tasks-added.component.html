@@ -1,7 +1,7 @@
 <div class="row">
-  <menu-nav [isProductivity]="false" class="col s12 m3 l3"></menu-nav>
+  <menu-nav [isProductivity]="false" class="col s12 l3"></menu-nav>
 
-  <div class="col s12 m9 l9 card box-chart">
+  <div class="col s12 l9 card box-chart">
     <!--NO DATA MESSAGE-->
     <no-data *ngIf="!tasks" [message]="noDataMessage" class="fadeIn"></no-data>
     <section *ngIf="tasks">

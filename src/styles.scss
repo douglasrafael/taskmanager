@@ -253,13 +253,10 @@ a.disabled {
     cursor: default;
 }
 
-<<<<<<< HEAD
 .badge {
    position:relative;
 }
 
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 .backdrop {
     background-color: color('grey', 'darken-4');
     font-size: 0.5rem;
@@ -371,16 +368,4 @@ a.disabled {
 }
 @media #{$extra-large-and-up} {
 // styles for extra large screens and up
-<<<<<<< HEAD
 }
-=======
-}
-        
-// CLOCKPICKER
-// @import "./assets/css/materialize.clockpicker.css";
-// .clockpicker-canvas line { stroke: rgba(41, 182, 246, 0.25) }
-// .clockpicker-canvas-fg { fill: rgba(3, 169, 244, 0) }
-// .clockpicker-canvas-bg { fill: rgba(41, 182, 246, 0.25) }
-// .clockpicker-canvas-bearing { fill: rgba(21, 101, 192, 0.75) }
-// .clockpicker-tick:hover{ background-color:rgba(3, 155, 229, 0.25) }
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46

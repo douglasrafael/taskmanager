@@ -287,6 +287,7 @@ export class TasksFormComponent implements OnInit {
    */
   handleSelectFile(event): void {
     this.fileTask = event.target.files[0];
+    console.log('event.target.files[0]: ', event.target.files[0]);
   }
 
   /**

@@ -2,7 +2,6 @@
 
 const express = require('express');
 const moment = require('moment');
-<<<<<<< HEAD
 const mongoose = require('mongoose');
 const Grid = require('gridfs-stream');
 
@@ -20,21 +19,6 @@ const gfs = Grid(conn.db);
  * Realiza upload do file associado a tarefa
  */
 router.post('/file', function (req, res) {
-=======
-const fs = require('fs');
-const path = require('path');
-
-const router = express.Router();
-const PATH_UPLOAD = './server/public/uploads/files';
-const upload = require('./../config/upload')({ filename: "file", localstorage: PATH_UPLOAD, filename_ori: true });
-const passport = require("./../config/passport")(require('passport'));
-const Task = require('./../models/task');
-
-/**
- * Realiza upload do arquivo
- */
-router.post('/upload/file', function (req, res) {
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
     upload.sendSingle(req, res, function (err) {
         if (err) return res.status(400).send(err);
 
@@ -43,7 +27,6 @@ router.post('/upload/file', function (req, res) {
 });
 
 /**
-<<<<<<< HEAD
  * Seleciona o file associado a tarefa de acordo com o filename
  */
 router.get('/file/:filename', function (req, res) {
@@ -75,15 +58,6 @@ router.delete('/file/:filename', passport.authenticate(), function (req, res) {
             res.status(404).send("No image found with that title");
         }
     });
-=======
- * Remove do servidor a imagem do usuário de acordo com o nome da imagem
- */
-router.delete('/upload/file/:filename', function (req, res) {
-    if (!deleteFile(req.params.filename))
-        return res.status(404).end();
-
-    res.status(200).end();
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 });
 
 /**
@@ -212,7 +186,6 @@ router.put('/setdone/:id', passport.authenticate(), function (req, res) {
  */
 router.delete('/:id', passport.authenticate(), function (req, res) {
     Task.findByIdAndRemove(req.params.id).then(function (task) {
-<<<<<<< HEAD
         if (task.file) {
             // deleta o arquivo do servidor
             gfs.remove({ filename: task.file, root: ctName }, function (err) {
@@ -220,20 +193,11 @@ router.delete('/:id', passport.authenticate(), function (req, res) {
             });
         }
         res.status(200).send(task);
-=======
-        if (task.file) deleteFile(task.file); // deleta o arquivo do servidor
-
-        res.send(task);
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
     }).catch(function (err) {
         res.status(404).send(err);
     });
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 /**
  * Recebe uma string com as labels separadas por virgula
  * e retorna um array.
@@ -252,21 +216,4 @@ function labelsToArray(labels) {
     return labels_arr;
 }
 
-<<<<<<< HEAD
-=======
-/**
- * Remove arquivo do servidor de acordo com o filename
- * 
- * @param {string} filaname 
- */
-function deleteFile(filaname) {
-    let _path = path.resolve(PATH_UPLOAD).concat('/', filaname);
-    fs.unlink(_path, function (err) {
-        if (err) return false;
-
-        return true;
-    });
-}
-
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 module.exports = router;

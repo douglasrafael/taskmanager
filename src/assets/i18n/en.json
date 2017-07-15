@@ -161,17 +161,14 @@
         "CONTENT-SEARCH": ""
     },
     "REPORTS": {
-<<<<<<< HEAD
         "TITLE-PRODUCTIVITY": "Productivity Report - Archived/Completed Tasks",
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
         "TITLE-COMPARISON": "Report on active, expired and filed activities",
         "TITLE-ADDED": "Added activity report for the year {{value}}",
         "TASKS-ADDED": "Tasks added",
         "PARAMETER": "Parameters",
         "MENU-ITEM-PRODUCTIVITY": "Productivity",
         "MENU-ITEM-ADDED": "Added",
-        "MENU-ITEM-COMPARISON": "Active/Delayed/Archived",
+        "MENU-ITEM-COMPARISON": "All",
         "WEEK-CURRENT": "Current week",
         "MONTH-CURRENT": "Current month",
         "YEAR-CURRENT": "Current year"
