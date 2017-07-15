@@ -1,0 +1,75 @@
+<header class="navbar-fixed">
+  <nav class="nav-extended">
+    <div class="hide-on-small-only img-beta">
+      <img src="./assets/images/beta.png" alt="beta" width="100" height="100">
+    </div>
+
+    <div class="container">
+
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">
+          <i class="hide-on-med-and-down"><img src="./assets/images/ic_launcher_circle.png" width="60" alt="logo"></i>
+          <span class="title-app">{{ 'APP-TITLE' | translate }}</span>
+        </a>
+
+        <ul class="drop-menu-config right hide-on-med-and-down">
+          <!-- Dropdown Trigger dropdown-bar -->
+          <li>
+            <a materialize="dropdown" [materializeParams]="paramsDropdown" class="dropdown-button" data-activates="dropdown-bar">
+              <img [src]="avatarSrc" width="40" class="left circle responsive-img" alt="user image">
+              {{ user?.firstName }}
+              <i class="material-icons right">arrow_drop_down</i>
+            </a>
+          </li>
+        </ul>
+        <!-- Dropdown Structure dropdown-bar -->
+        <ul id='dropdown-bar' class='dropdown-content'>
+          <li><a [routerLink]="['/user/edit']"><i class="material-icons">settings</i>{{ 'SETTINGS' | translate }}</a></li>
+          <li class="divider"></li>
+          <li><a href="#" (click)="logout()"><i class="material-icons">input</i>{{ 'EXIT' | translate }}</a></li>
+        </ul>
+
+        <!-- Dropdown Trigger dropdown-notice -->
+        <a href='#' class="badge right bt-notice hide-on-med-and-down" materialize="dropdown" data-activates='dropdown-notice' [materializeParams]="paramsDropdown">
+          <span *ngIf="alerts" class="badge-alert">{{ alerts?.length }}</span>
+          <i class="fa fa-bell-o" aria-hidden="true"></i>
+        </a>
+        <!-- Dropdown Structure dropdown-notice -->
+        <ul id='dropdown-notice' class='dropdown-content'>
+          <li *ngFor="let task of alerts">
+            <a [routerLink]="['/tasks/edit', task._id]"> {{ task.title }} | {{ task.completionDateStr() }} </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="nav-content">
+        <span class="nav-title">
+           <p class="flow-text">
+              <a *ngIf="!isPageHome" (click)="doBack()" class="bt-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+              {{ titlePage | async }}
+           </p> 
+        </span>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<div class="container content row">
+  <div class="">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!--MENU FAB-->
+<div class="fab-menu">
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue darken-3"><i class="large material-icons">menu</i></a>
+    <ul>
+      <li><a routerLink="/tasks/print" class="btn-floating red"><i class="fa fa-file" aria-hidden="true"></i></a></li>
+      <li><a routerLink="/reports/productivity" class="btn-floating amber"><i class="material-icons">insert_chart</i></a></li>
+      <li><a routerLink="/tasks/create" class="btn-floating green"><i class="material-icons">add</i></a></li>
+    </ul>
+  </div>
+</div>

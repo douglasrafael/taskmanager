@@ -1,0 +1,371 @@
+@import "~materialize-css/sass/components/color"; /* This must be included to use the included variables and the color function */
+
+// DEFNINDO AS CORES DO TEMA
+$primary-color: color("blue", "darken-3") !default;
+$primary-color-light: false !default;
+$primary-color-dark: false !default;
+$secondary-color: color("light-blue", "base") !default;
+$success-color: color("light-green", "darken-3") !default;
+$error-color: color("red", "darken-3") !default;
+
+$link-color: color("grey", "darken-3") !default;
+
+@if not $primary-color-light {
+    $primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+    $primary-color-dark: darken($primary-color, 5%);
+}
+$accent-color: $secondary-color;
+
+// IMPORTANTO O MATERIALIZE
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/"; /* This is needed so the materialize.scss file can load the font */
+@import "~materialize-css/sass/materialize";
+
+/**
+ * STYLES GERAL DO SISTEMA
+ */
+ 
+@mixin transition-mixin($property, $duration) {
+    -webkit-transition: $property $duration;
+    -moz-transition: $property $duration;
+    -o-transition: $property $duration;
+    -ms-transition: $property $duration;
+    transition: $property $duration;
+}   
+
+html, body { margin:0; background-color: color("grey", "lighten-5"); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif }
+textarea.materialize-textarea {
+    padding: .8rem 0 .8rem 0;
+}
+
+.bg-dark {
+    background-color: $primary-color-dark;
+    height: 100%;
+}
+
+.chips.focus {
+    border-bottom: 1px solid $secondary-color;
+    box-shadow: 0 1px 0 0 $secondary-color;
+}
+
+.btn-large {
+    height: 46px;
+    line-height: 46px;
+}
+
+.chips .chip.selected {
+    background-color: $secondary-color;
+}
+
+.text-small {
+    font-size: 90%;
+}
+
+.absolute { position: absolute;  width: 100%; }
+
+.margin-l-5 { margin-left: 5px; }
+.margin-l-10 { margin-left: 10px; }
+.margin-l-15 { margin-left: 15px; }
+.margin-l-20 { margin-left: 20px; }
+.margin-l-25 { margin-left: 25px; }
+.margin-l-30 { margin-left: 30px; }
+.margin-r-5 { margin-right: 5px; }
+.margin-r-10 { margin-right: 10px; }
+.margin-r-15 { margin-right: 15px; }
+.margin-r-20 { margin-right: 20px; }
+.margin-r-25 { margin-right: 25px; }
+.margin-r-30 { margin-right: 30px; }
+.margin-b-5 { margin-right: 5px; }
+.margin-b-10 { margin-right: 10px; }
+.margin-b-15 { margin-right: 15px; }
+.margin-b-20 { margin-right: 20px; }
+.margin-b-25 { margin-right: 25px; }
+.margin-b-30 { margin-right: 30px; }
+.margin-t-5 { margin-right: 5px; }
+.margin-t-10 { margin-right: 10px; }
+.margin-t-15 { margin-right: 15px; }
+.margin-t-20 { margin-right: 20px; }
+.margin-t-25 { margin-right: 25px; }
+.margin-t-30 { margin-right: 30px; }
+.margin-b-5 { margin-bottom: 5px; }
+.margin-b-10 { margin-bottom: 10px; }
+.margin-b-15 { margin-bottom: 15px; }
+.margin-b-20 { margin-bottom: 20px; }
+.margin-b-25 { margin-bottom: 25px; }
+.margin-b-30 { margin-bottom: 30px; }
+
+
+.dropdown-content li > a > i {
+    margin: 0px 10px 0px 0px;
+}
+
+.dropdown-content li > a {
+    font-size: 1rem;
+    padding-right: 60px;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: black;
+}
+
+.collection a.collection-item {
+    color: black;
+}
+
+span.badge-c {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 0.8rem;
+    line-height: 1;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+}
+
+span.label {
+    display: inline;
+    padding: 1.5px 6px;
+    font-size: 0.8rem;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+header.smaller {
+    height: 75px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+header.smaller .menu span.item-right {
+    padding-right: 85px;
+}
+
+header.smaller .box-title .title {
+    margin: -98px 40px;
+}
+
+.content {
+    margin-top: 120px;
+}
+
+.nav-right {
+    margin-top: 7px;
+    @include transition-mixin(all, 0.3s);
+}
+
+.cursor-hover:hover { cursor: pointer; }
+
+.border-test {
+    border: 1px solid red;
+}
+
+.tabs {
+    display: block;
+    margin: 0;
+    overflow: hidden;
+
+    .indicator {
+        background-color: color("yellow", "darken-1");
+        height: 4px;
+        width: 50%;
+    }
+
+    .tab { text-transform: capitalize; }
+
+    .tab a {
+        color: black;
+    }  
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+     color: color("grey", "darken-4");
+     background-color: color("grey", "lighten-2");
+}
+
+.box-filter a.active {
+     color: color("grey", "darken-4");
+     background-color: color("grey", "lighten-2");
+}
+
+.row .col.nav-right-content {
+    background-color: white;
+    padding: 10px;
+    display: block;
+    position: relative;
+    overflow: auto;
+    @include transition-mixin(all, 0.3s);
+}
+
+.menu-right {
+    .collection a i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+    }
+
+    .collection-item.active {
+        color: black;
+        background-color: color("grey", "lighten-2");
+    }
+}
+
+.ng-invalid.ng-touched:not(form) {
+    border-bottom: 1px solid $error-color;
+    box-shadow: 0 1px 0 0 $error-color;
+}
+
+.ng-valid.ng-touched:not(form) {
+    border-bottom: 1px solid #558b2f;
+    box-shadow: 0 1px 0 0 #558b2f;
+}
+
+.error-input > span {
+   position: relative; 
+    top: -1.3rem;
+    margin-bottom: -150px;
+    left: 0rem;
+    font-size: 0.8rem;
+    color: $error-color;
+    text-align: justify;
+}
+
+.error-input.ipt-icon > span {
+    padding-left: 3rem;
+}
+
+.toast {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+a.disabled {
+    pointer-events: none;
+    background-color: #DFDFDF !important;
+    box-shadow: none;
+    color: #9F9F9F !important;
+    cursor: default;
+}
+
+.badge {
+   position:relative;
+}
+
+.backdrop {
+    background-color: color('grey', 'darken-4');
+    font-size: 0.5rem;
+    padding: 5px 10px 5px 10px;
+}  
+
+::-webkit-scrollbar {
+    width: 5px; 
+}
+::-webkit-scrollbar-track-piece {
+    background: #aebcbf;
+}
+::-webkit-scrollbar-thumb:vertical {
+    background: color('light-blue', 'darken-4');
+    border-radius: 5px; 
+}
+::-webkit-scrollbar-thumb:horizontal {
+    width: 5px; 
+    background-color: color('light-blue', 'darken-4');
+}
+
+// ANIMATION BUTTON SUBMIT
+%btn-animated {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 10%;
+    width: 46px;
+    height: 46px;
+    background-image: url('./assets/images/loading.svg');
+}
+
+.btn-processing {
+    position: relative;
+    pointer-events: none;
+    background-color: #DFDFDF !important;
+    box-shadow: none;
+    color: #9F9F9F !important;
+    cursor: default;
+
+    &:before {
+        @extend %btn-animated;
+    }
+}
+
+.bottom-sheet {
+    .modal-footer {
+        text-align: center;
+    }
+}
+
+.box-chart {
+    .card-content {
+        .card-title { text-align: center; padding-bottom: 1rem; }
+    }
+
+    .card-action {
+        margin-bottom: 1rem;
+        h5 { text-decoration: underline; }
+    }
+}
+
+// RESPOSIVE
+@media #{$small-and-down} {
+    .list-collection {
+        .grid-item {
+            width: 100%!important;
+            max-width: 100%!important;
+            margin: 0!important;
+        }
+    }
+}
+@media #{$medium-and-up} {
+    // .list-item {
+    //     width: 100%;
+    // }
+}
+@media #{$medium-and-down} { // styles for medium screens and down
+
+    // .list-item {
+    //     width: 50%;
+    // }
+
+    // header aside.fab-btn .fixed-action-btn {
+    //     margin-top: 125px;
+    //     right: 0px;
+    // }
+
+    // header.smaller aside.fab-btn  .fixed-action-btn {
+    //     margin-top: 0px;
+    // }
+}
+@media #{$large-and-up} { // styles for large screens and up
+//   .list-item {
+//     width: 33.3%;
+//   }
+//     .nav-right aside {
+//         position: fixed;
+//         width: 15%;
+//     }
+
+    .nav-right.smaller {
+        margin-top: -118px;
+    }
+
+    .fab-menu > .fixed-action-btn {
+        right: 17%;
+    }
+}
+@media #{$extra-large-and-up} {
+// styles for extra large screens and up
+}

@@ -1,0 +1,53 @@
+<div class="row">
+  <menu-nav class="col s12 m3 l3"></menu-nav>
+
+  <div class="col s12 m9 l9 card">
+    <form name="userForm" [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" enctype="multipart/form-data" novalidate>
+      <div class="row">
+
+        <!--LEFT-->
+        <div class="col s12 m4 l4">
+          <div class="input-field col s12 m12 l12 center avatar">
+            <div id="profile-container">
+              <img id="userImage" (click)="openDialogImage()" [src]="avatarUrl" alt="avatar"
+                class="circle responsive-img valign profile-image-login">
+            </div>
+            <input name="avatar" id="imageUpload" (change)="handleSelectImage($event)" type="file" capture accept="image/*"
+              [attr.disabled]="formProcessing?true:null">
+          </div>
+
+          <div class="col s12 m12 l12">
+            <h5 class="center-align flow-text">{{ user?.fullName() }}</h5>
+          </div>
+        </div>
+
+        <!--RIGHT-->
+        <div class="col s12 m8 l8">
+          <div class="input-field col s12 m12 l6">
+            <input type="text" name="firstName" class="validate" formControlName="firstName" [attr.disabled]="formProcessing?true:null">
+            <label for="firstname" class="active">{{ 'FIRST-NAME' | translate }}</label>
+            <control-messages class="error-input" [control]="userForm.controls.firstName"></control-messages>
+          </div>
+
+          <div class="input-field col s12 m12 l6">
+            <input type="text" name="lastName" class="validate" formControlName="lastName" [attr.disabled]="formProcessing?true:null">
+            <label for="lastname" class="active">{{ 'LAST-NAME' | translate }}</label>
+            <control-messages class="error-input" [control]="userForm.controls.lastName"></control-messages>
+          </div>
+
+          <div class="input-field col s12 m12 l12">
+            <input type="email" name="email" class="validate" formControlName="email" [attr.disabled]="formProcessing?true:null">
+            <label for="email" class="active">{{ 'EMAIL' | translate }}</label>
+            <control-messages class="error-input" [control]="userForm.controls.email"></control-messages>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6 l4 right">
+          <button [disabled]="userForm.invalid" [ngClass]="{'btn-processing': formProcessing}" class="btn waves-effect waves-light col s12 btn-large">{{ 'UPDATE-DATA' | translate }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

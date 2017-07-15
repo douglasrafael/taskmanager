@@ -1,0 +1,55 @@
+<div class="bg-dark absolute">
+  <div class="container container-login">
+    <div class="row">
+      <div class="col s12 m12 l12 z-depth-4 card-panel box-login">
+        <form class="login-form" name="loginForm" id="loginForm" [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit()" novalidate>
+
+          <div class="row">
+            <div class="input-field col s12 center">
+              <img src="./assets/images/ic_launcher.png" alt="logo" width="110" class="circle responsive-img profile-image-login">
+              <p class="center login-form-text">{{ 'APP-TITLE' | translate }}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="prefix material-icons">perm_identity</i>
+              <input type="email" formControlName="email" name="email" class="validate">
+              <label for="email">{{ 'EMAIL' | translate }}</label>
+              <control-messages class="error-input ipt-icon" [control]="loginForm.controls.email"></control-messages>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="prefix material-icons">lock_outline</i>
+              <input type="password" formControlName="password" name="password" class="validate">
+              <label for="password">{{ 'PASSWORD' | translate }}</label>
+              <control-messages class="error-input ipt-icon" [control]="loginForm.controls.password"></control-messages>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m12 l12 remember-text">
+              <input type="checkbox" id="remember-me" formControlName="rememberme" name="rememberme">
+              <label for="remember-me">{{ 'REMEMBER-ME' | translate }}</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn waves-effect waves-light col s12 btn-large">{{ 'LOGIN' | translate }}</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6 m6 l6">
+              <p class="text-small"><a [routerLink]="['/signup']">{{ 'REGISTER-NOW' | translate }}</a></p>
+            </div>
+            <div class="input-field col s6 m6 l6">
+              <p class="text-small right-align"><a [routerLink]="['/reset-password']">{{ 'FORGOT-PASSWORD' | translate }}</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

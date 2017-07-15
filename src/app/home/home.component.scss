@@ -1,0 +1,49 @@
+.nav-title {
+    padding: 10px 0 0 0;
+}
+
+.brand-logo {
+    margin-top: 10px;
+}
+
+.drop-menu-config {
+    img { margin: 11px 10px 0 0; }
+    i { margin-left: 5px; }
+}
+
+.btn-floating .fa-file { font-size: 1.3rem; }
+
+.bt-notice {
+    margin-right: 0.8rem;
+    i { font-size: 1.5rem; }
+}
+
+.bt-prev {
+    &:hover{
+        cursor: pointer;
+    }
+    i {
+        height: 1.8rem;
+        margin-right: 0.5rem;
+    }
+}
+
+.img-beta {
+    position: absolute;
+    left: 0 auto;
+    top: 0;
+}
+
+.badge-alert {
+   position:absolute;
+   top:12px;
+   right:-10px;
+   font-size:.7em;
+   background:red;
+   color:white;
+   width:18px;
+   height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+}

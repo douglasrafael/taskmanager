@@ -1,0 +1,45 @@
+<div class="col s12 m12 l12">
+  <aside>
+    <div class="menu-right">
+      <div class="collection">
+        <a class="collection-item" [routerLink]="['/reports/productivity']" routerLinkActive="active">{{ 'REPORTS.MENU-ITEM-PRODUCTIVITY' | translate }}</a>
+        <a class="collection-item" [routerLink]="['/reports/tasksadded']" routerLinkActive="active">{{ 'REPORTS.MENU-ITEM-ADDED' | translate }}</a>
+        <a class="collection-item" [routerLink]="['/reports/comparison']" routerLinkActive="active">{{ 'REPORTS.MENU-ITEM-COMPARISON' | translate }} </a>
+        <!--<a class="collection-item" [routerLink]="['/reports']" [queryParams]="{ p: 1 }" routerLinkActive="active">Produtividade</a>
+        <a class="collection-item" [routerLink]="['/reports']" [queryParams]="{ p: 2 }" routerLinkActive="active">Tarefas adicionadas</a>
+        <a class="collection-item" [routerLink]="['/reports']" [queryParams]="{ p: 3 }" routerLinkActive="active">Ativas/Concluídas/Vencidas (pie)</a>-->
+
+        <div *ngIf="isProductivity" class="params fadeIn">
+          <div class="title">{{ 'REPORTS.PARAMETER' | translate }}</div>
+
+          <div class="input-field">
+            <input type="radio" name="param" (change)="emitValue()" [(ngModel)]="param" [checked]="param === monthCurrent" id="monthCurrent" value="monthCurrent"/>
+            <label for="monthCurrent">{{ 'REPORTS.MONTH-CURRENT' | translate }}</label>
+
+            <input type="radio" name="param" (change)="emitValue()" [(ngModel)]="param" [checked]="param === yearCurrent" id="yearCurrent" value="yearCurrent"/>
+            <label for="yearCurrent">{{ 'REPORTS.YEAR-CURRENT' | translate }}</label>
+          </div>
+        </div>
+
+        <!--<div *ngIf="showBoxPeriod" class="box-period fadeIn">
+              <i class="divider"></i>
+
+              <div class="title">Período</div>
+
+              <form [formGroup]="graphicForm">
+                <div class="input-field">
+                  <input type="text" class="validate" name="dateInit" formControlName="dateInit">
+                  <label for="dateInit">de</label>
+                </div>
+                <div class="input-field dateEnd">
+                  <input type="text" class="validate" name="dateEnd" formControlName="dateEnd">
+                  <label for="dateEnd">até</label>
+                </div>
+                <button [disabled]="graphicForm.invalid" [ngClass]="{'btn-processing': formProcessing}" class="btn waves-effect waves-light col s12">{{ 'GENERATE' | translate }}</button>
+              </form>
+            </div>-->
+
+      </div>
+    </div>
+  </aside>
+</div>

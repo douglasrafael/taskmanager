@@ -1,0 +1,24 @@
+<div class="row">
+  <menu-nav class="col s12 m3 l3"></menu-nav>
+  <div class="col s12 m9 l9 card-panel">
+    <div class="card-content">
+      <span class="card-title">{{ 'LANGUAGE-CHANGE' | translate }}</span>
+
+      <div class="language-box box">
+        <div class="col s12 m12 l6">
+          <select required [(ngModel)]="languageSelected" materialize="material_select" name="language">
+            <option value="" disabled>{{ 'LANGUAGE-SELECT' | translate }}</option>
+            <option *ngFor="let lang of langs" [value]="lang.key">{{ lang.value }}</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-action col s12">
+        <button (click)="applyChanges()" class="btn-large waves-effect waves-light col s12 m6 l4 right">{{ 'APP-SETTINGS-APPLY-CHANGES' | translate }}</button>
+    </div>
+
+  </div>
+
+</div>

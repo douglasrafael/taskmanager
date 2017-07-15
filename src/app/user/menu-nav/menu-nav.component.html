@@ -1,0 +1,24 @@
+<div class="col s12 m12 l12">
+  <aside class="">
+    <div class="menu-right">
+      <div class="collection">
+        <a class="collection-item" [routerLink]="['/user/edit']" routerLinkActive="active">{{ 'EDIT-PROFILE' | translate }}</a>
+        <a class="collection-item" [routerLink]="['/user/password']" routerLinkActive="active">{{ 'EDIT-PASSWORD' | translate }}</a>
+        <a class="collection-item" [routerLink]="['/user/remove']" routerLinkActive="active">{{ 'REMOVE-ACCOUNT' | translate }}</a>
+        <a class="collection-item" [routerLink]="['/user/app/settings']" routerLinkActive="active">{{ 'APPLICATION' | translate }}</a>
+        <a class="collection-item" (click)="openModalExitApp()">{{ 'EXIT' | translate }}</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- Modal Structure -->
+<div class="modal bottom-sheet" materialize="modal" [materializeActions]="modalActions">
+  <div class="modal-content center-align">
+    <h4 class="flow-text">{{ 'EXIT-APP' | translate }}</h4>
+  </div>
+  <div class="modal-footer">
+    <a class="center waves-effect waves-green btn-flat" (click)="closeModalExitApp()">{{ 'NO' | translate}}</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat" (click)="logout()">{{ 'YES' | translate}}</a>
+  </div>
+</div>

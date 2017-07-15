@@ -1,0 +1,73 @@
+<div class="box-filter">
+  <div class="input-field  col s11">
+    <input type="search" [(ngModel)]="iptTerm" (keyup)="onKeySearch($event)" placeholder="{{ 'SEARCH-TASK' | translate }}">
+    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+    <i class="material-icons bt-close" (click)="cleanSearch()">close</i>
+  </div>
+
+  <div class="col s1">
+    <!-- Dropdown Trigger dropdown-filter -->
+    <a href='#' class="right bt-filter" materialize="dropdown" data-activates='dropdown-filter' [materializeParams]="paramsFilter">
+      <i class="material-icons">subject</i>
+    </a>
+    <!-- Dropdown Structure dropdown-filter -->
+    <ul id='dropdown-filter' class='dropdown-content'>
+      <li><a [routerLink]="['/tasks/list/today']" routerLinkActive="active"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>{{ 'FOR-TODAY' | translate }}</a></li>
+      <li><a [routerLink]="['/tasks/list/seven']" routerLinkActive="active"><i class="fa fa-calendar active" aria-hidden="true"></i>{{ 'FOR-SEVEN-DAYS' | translate }}</a></li>
+      <li><a [routerLink]="['/tasks/list/expired']" routerLinkActive="active"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ 'OVERDUE' | translate }}</a></li>
+      <li><a [routerLink]="['/tasks/list/archived']" routerLinkActive="active"><i class="fa fa-archive" aria-hidden="true"></i>{{ 'ARCHIVED' | translate }}</a></li>
+      <li><a [routerLink]="['/tasks/list/all']" routerLinkActive="active"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ 'ALL' | translate }}</a></li>
+    </ul>
+  </div>
+</div><br>
+<!--CONTENT LIST-->
+<masonry class="list-collection grid" [options]="myOptions">
+  <masonry-brick class="grid-item" *ngFor="let task of (tasks | searchfilter: 'title': iptTerm); let i = index;">
+    <div class="card" [ngClass]="getColorPriority(task.priority)">
+
+      <div class="card-content white-text">
+        <span class="card-title activator"><i *ngIf="task.noticeDate" class="fa fa-bell-o" aria-hidden="true"></i>{{ task.title }}</span>
+        <p>{{ task.description }}</p>
+      </div>
+      <div class="card-action">
+        <span *ngIf="!task.isFinalized" class="card-title">{{ task.completionDateStr() }}</span>
+        <span *ngIf="task.isFinalized" class="card-title">{{ 'COMPLETED' | translate }}</span>
+        <div class="actions-buttons">
+          <a *ngIf="!task.isFinalized" class='cursor-hover' (click)="setDone(task._id)"><i class="material-icons">done</i></a>
+          <a class="activator cursor-hover"><i class="material-icons">more_vert</i></a>
+        </div>
+      </div>
+
+      <div class="card-reveal">
+        <span class="card-title">
+            <a class="cursor-hover right"><i class="material-icons">close</i></a>
+            <a class="cursor-hover right" (click)="openModalRemove(task._id)"><i class="material-icons">delete</i></a>
+            <a [routerLink]="['/tasks/edit', task._id]" class="cursor-hover right"><i class="material-icons">edit</i></a>
+        </span>
+
+        <span class="reveal-body">
+            <p><b>{{ 'DATE-COMPLETION' | translate }}: </b>{{ task.completionDate | date: getFormatDate() }}</p>
+            <p><b>{{ 'STATUS' | translate }}: </b>{{ task.statusToString() }}</p>
+            <p *ngIf="task.noticeDate"><b>{{ 'ALERT' | translate }}: </b>{{ task.noticeDate | date: getFormatDateTime() }}</p>
+            <p><b>{{ 'REGISTRATION' | translate }}: </b>{{ task.created_at | date: getFormatDate() }}</p>
+            <p *ngIf="task.labels?.length > 0"><b>{{ 'TAGS' | translate }}: </b><span class="badge-c grey margin-r-5" *ngFor="let label of task.labels;">{{ label }}</span></p>
+        <p *ngIf="task.file && task.isFinalized" class="file"><b>{{ 'FILE' | translate }}: </b><a [href]="task.getUrlDownloadFile()" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true"></i></a></p>
+        </span>
+      </div>
+    </div>
+  </masonry-brick>
+</masonry>
+<!--NO DATA MESSAGE-->
+<no-data *ngIf="(tasks | searchfilter: 'title': iptTerm).length === 0" [message]="noDataMessage" class="fadeIn"></no-data>
+
+<!-- Modal Structure -->
+<div id="modalRemove" class="modal bottom-sheet" materialize="modal" [materializeActions]="modalActions">
+  <div class="modal-content center-align">
+    <h4 class="flow-text">{{ 'REMOVE-ALERT-TASK-TITLE' | translate }}</h4>
+    <p>{{ 'REMOVE-ALERT-TASK-SUBTITLE' | translate }}...</p>
+  </div>
+  <div class="modal-footer">
+    <a class="center waves-effect waves-green btn-flat" (click)="closeModalRemove()">{{ 'NO' | translate}}</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat" (click)="removeTask()">{{ 'YES' | translate}}</a>
+  </div>
+</div>

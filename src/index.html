@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Task Manager</title>
+
+  <base href="/">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style type="text/css">
+  #pre-bootstrap {
+    background-color: white;
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: 999999;
+  }
+
+  #pre-bootstrap div.messaging {
+    font-family: monospace;
+    left: 0px;
+    margin-top: -37px;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    top: 40%;
+  }
+</style>
+
+<body>
+  <app-root>
+    <div id="pre-bootstrap">
+      <div class="messaging">
+        <img src="./assets/images/loading_page.gif" alt="loading..." width="128" height="128">
+      </div>
+    </div>
+  </app-root>
+</body>
+
+</html>
