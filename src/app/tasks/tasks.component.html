@@ -51,7 +51,11 @@
             <p *ngIf="task.noticeDate"><b>{{ 'ALERT' | translate }}: </b>{{ task.noticeDate | date: getFormatDateTime() }}</p>
             <p><b>{{ 'REGISTRATION' | translate }}: </b>{{ task.created_at | date: getFormatDate() }}</p>
             <p *ngIf="task.labels?.length > 0"><b>{{ 'TAGS' | translate }}: </b><span class="badge-c grey margin-r-5" *ngFor="let label of task.labels;">{{ label }}</span></p>
+<<<<<<< HEAD
         <p *ngIf="task.file && task.isFinalized" class="file"><b>{{ 'FILE' | translate }}: </b><a [href]="task.getUrlDownloadFile()" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true"></i></a></p>
+=======
+        <p *ngIf="task.file && task.isFinalized" class="file"><b>{{ 'FILE' | translate }}: </b><a href="uploads/files/{{ task.file }}" target="_blank"><i class="fa fa-cloud-download" aria-hidden="true"></i></a></p>
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
         </span>
       </div>
     </div>

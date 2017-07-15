@@ -40,3 +40,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+=======
+
+# Serve uploads
+/server/public
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46

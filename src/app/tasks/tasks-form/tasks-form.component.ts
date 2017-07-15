@@ -138,12 +138,17 @@ export class TasksFormComponent implements OnInit {
         }, 10);
       }
 
+<<<<<<< HEAD
       if (this.task.file && this.task.isFinalized) {
         let file = this.task.file;
         setTimeout(function () {
           jQuery('.file-path').val(file);
         }, 10);
       }
+=======
+      if (this.task.file && this.task.isFinalized)
+        jQuery('.file-path').val(this.task.file)
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
       this.populaInputLabels(this.labelsInit, this.autocompleteInit);
     }
@@ -177,7 +182,11 @@ export class TasksFormComponent implements OnInit {
 
         // Preparando arquivo para upload
         let formData: FormData = new FormData();
+<<<<<<< HEAD
         formData.append('file', this.fileTask, this.fileTask.name);
+=======
+        formData.append('file', this.fileTask);
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
         this._taskService.uploadFile(formData).subscribe((data) => {
           // Após upload com sucesso seta no objeto task o filename que veio do back-end 
@@ -185,7 +194,10 @@ export class TasksFormComponent implements OnInit {
 
           this.submit(this.task); // processo de inserção/atualização do objeto task
         }, (error) => {
+<<<<<<< HEAD
           this.formProcessing = false;
+=======
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
           Materialize.toast(this._translateService.instant('ERROR-UPLOAD-FILE'), 5000);
         });
       } else {
@@ -373,6 +385,7 @@ export class TasksFormComponent implements OnInit {
     this._location.back();
   }
 
+<<<<<<< HEAD
   removeFile(): void {
     this.fileTask = null;
     if (this.task.file) {
@@ -385,6 +398,8 @@ export class TasksFormComponent implements OnInit {
     }, 10);
   }
 
+=======
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
   /**
    * Pupula o input de labels
    * 

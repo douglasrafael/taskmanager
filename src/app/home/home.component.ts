@@ -2,7 +2,11 @@ import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { Component, OnInit, ElementRef } from '@angular/core';
+<<<<<<< HEAD
 import { Title, DomSanitizer, SafeUrl } from '@angular/platform-browser';
+=======
+import { Title } from '@angular/platform-browser';
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 import { TranslateService } from 'ng2-translate';
 
 import { User } from 'app/user/user';
@@ -23,7 +27,11 @@ export class HomeComponent implements OnInit {
   headerSmaller: boolean = false; // TODO utilizado na nav direita. Remover se não for utilizar
   user: User;
   alerts: Array<Tasks>;
+<<<<<<< HEAD
   avatarSrc: SafeUrl;
+=======
+  avatarSrc: string;
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
   paramsDropdown: Array<any>;
   titlePage: Observable<string>;
   isPageHome: boolean;
@@ -36,14 +44,21 @@ export class HomeComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute,
     private _location: Location,
+<<<<<<< HEAD
     private _translateService: TranslateService,
     private _sanitizer: DomSanitizer) {
+=======
+    private _translateService: TranslateService) {
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
     this._translateService.get(['APP-TITLE', 'APP-SUBTITLE']).subscribe(res => {
       this._titleService.setTitle(res['APP-TITLE'].concat(' - ', res['APP-SUBTITLE']));
     });
 
+<<<<<<< HEAD
     this.avatarSrc = this._sanitizer.bypassSecurityTrustUrl('./assets/images/avatar.png');
+=======
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
     this.isPageHome = true;
   }
 
@@ -74,6 +89,7 @@ export class HomeComponent implements OnInit {
     // Pega os dados do usuário logado
     this._userService.getUserLogged().subscribe((res) => {
       this.user = new User(res, this._translateService);
+<<<<<<< HEAD
 
       if (this.user.avatar && this.user.avatar != '') {
         this._userService.getAvatar(this.user.avatar).subscribe(res => {
@@ -89,6 +105,17 @@ export class HomeComponent implements OnInit {
           return new Tasks(elem, this._translateService);
         });
       }
+=======
+      if (this.user.avatar && this.user.avatar != '')
+        this.avatarSrc = 'uploads/users/'.concat(this.user.avatar);
+    });
+
+    // lista as alertas caso tenha
+    this._tasksService.listFilter('alert').subscribe(res=> {
+      this.alerts = res.map(elem=>{
+        return new Tasks(elem, this._translateService);
+      });
+>>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
     });
 
     // Parametros para o menu dropdown
