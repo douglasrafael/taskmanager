@@ -1,7 +1,7 @@
 <img align="left" alt="logo" width="130" src="https://github.com/faelsantos/taskmanager/blob/master/src/assets/images/ic_launcher_circle.png?raw=true">
 
 # TASK MANAGER - Your task manager to do
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![node](https://img.shields.io/badge/node-v8.1.3-red.svg)](https://nodejs.org/) [![npm](https://img.shields.io/badge/npm-v5.0.3-red.svg)](https://nodejs.org/)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![node](https://img.shields.io/badge/node-v8.1.3-red.svg)](https://nodejs.org/) [![npm](https://img.shields.io/badge/npm-v5.0.3-red.svg)](https://nodejs.org/) [![Build Status](https://travis-ci.org/faelsantos/taskmanager.svg?branch=master)](https://travis-ci.org/faelsantos/taskmanager)
 
 ## DEMO 
 Go to [TaskManager](https://taskmanager-beta.herokuapp.com/)
