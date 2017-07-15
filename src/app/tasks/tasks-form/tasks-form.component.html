@@ -1,10 +1,6 @@
 <div class="row">
   <form materialize class="card-panel" [attr.disabled]="formProcessing?true:null" [formGroup]="taskForm" (ngSubmit)="taskForm.valid && onSubmit()"
-<<<<<<< HEAD
     id="taskForm" enctype="multipart/form-data" novalidate>
-=======
-    novalidate id="taskForm">
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
     <div class="row">
       <div class="input-field col s12">
@@ -68,14 +64,9 @@
 
         <div class="input-field col s12 m6 l6">
           <i class="material-icons prefix">schedule</i>
-<<<<<<< HEAD
           <input name="noticeHour" [attr.disabled]="formProcessing?true:null" [ngModel]="task.noticeDate | date: 'HH:mm'" [materializeParams]="paramsPickatime"
             materialize="pickatime" (ngModelChange)="changedTime($event)" formControlName="noticeHour" class="validate" type="text"
             class="pickatime">
-=======
-          <input name="noticeHour" [attr.disabled]="formProcessing?true:null" [ngModel]="task.noticeDate | date: 'HH:mm'" [materializeParams]="paramsPickatime" materialize="pickatime"
-            (ngModelChange)="changedTime($event)" formControlName="noticeHour" class="validate" type="text" class="pickatime">
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
           <label for="noticeHour" id="noticeHour" [class.active]="task.noticeDate">{{ 'ALERT-HOUR' | translate }}</label>
           <control-messages *ngIf="showBoxNotice" class="error-input ipt-icon" [control]="taskForm.controls.noticeHour"></control-messages>
         </div>
@@ -90,29 +81,19 @@
     </div>
 
     <div *ngIf="taskForm.value.isFinalized" class="row fadeIn">
-<<<<<<< HEAD
 
       <div class="file-field input-field col s12 m11">
         <div class="btn">
           <span>{{ 'FILE-SELECT' | translate }}</span>
           <input (change)="handleSelectFile($event)" [attr.disabled]="formProcessing?true:null" type="file" name="file">
-=======
-      <div class="file-field input-field col s12">
-        <div class="btn">
-          <span>{{ 'FILE-SELECT' | translate }}</span>
-          <input (change)="handleSelectFile($event)" value="hum" [attr.disabled]="formProcessing?true:null" type="file" name="file">
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate">
         </div>
       </div>
-<<<<<<< HEAD
       <div class="col s12 m1">
         <a *ngIf="task.file || fileTask" (click)="removeFile()" class="btn waves-effect waves-light red darken-1 btn-remove-file"><i class="material-icons">delete</i></a>
       </div>
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
     </div>
 
     <div class="row">

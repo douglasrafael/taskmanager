@@ -5,10 +5,6 @@ import { TranslateService } from 'ng2-translate';
 import { Filters } from 'app/shared/constants/filters.constant';
 import { TasksService } from 'app/tasks/tasks.service';
 import { Tasks } from 'app/tasks/tasks';
-<<<<<<< HEAD
-=======
-
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 import * as moment from 'moment';
 
 declare var jsPDF: any;
@@ -26,12 +22,7 @@ export class TasksPrintComponent implements OnInit {
 
   constructor(private _tasksService: TasksService,
     private _translateService: TranslateService,
-<<<<<<< HEAD
     private _sanitizer: DomSanitizer) {
-=======
-    private _sanitizer: DomSanitizer,
-    @Inject(Window) private _window: Window) {
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
     this.param = Filters.ALL;
   }
 
@@ -90,11 +81,7 @@ export class TasksPrintComponent implements OnInit {
       let ofStr = this._translateService.instant('OF');
       let appTitle = this._translateService.instant('APP-TITLE') + " - " + this._translateService.instant('APP-SUBTITLE');
       let linksFiles = new Array();
-<<<<<<< HEAD
       let path_base = window.location.origin;
-=======
-      let path_base = this._window.location.origin;
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
       /**
        * Criando o conteudo da página
@@ -122,11 +109,7 @@ export class TasksPrintComponent implements OnInit {
           if (typeof files[i] !== 'undefined' && files[i].file && !files[i].isAdded) {
             files[i].isAdded = true;
             doc.textWithLink('Download', linksFiles[i].x, linksFiles[i].y + 7, {
-<<<<<<< HEAD
               url: path_base.concat('/api/tasks/file/', files[i].file)
-=======
-              url: path_base.concat('/uploads/files/', files[i].file)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
             });
           }
         }

@@ -1,11 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-<<<<<<< HEAD
     "name": "taskmanager-v1.2"
-=======
-    "name": "taskmanager-v.1.0"
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
   },
   "apps": [
     {

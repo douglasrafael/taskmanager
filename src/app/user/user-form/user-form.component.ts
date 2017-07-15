@@ -31,10 +31,7 @@ export class UserFormComponent implements OnInit {
     private _translate: TranslateService, private _router: Router, private _sanitizer: DomSanitizer, private _ng2ImgMaxService: Ng2ImgMaxService,
     private _location: Location) {
     this.formProcessing = false;
-<<<<<<< HEAD
     this.avatarUrl = './assets/images/avatar.png';
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
   }
 
   ngOnInit() {
@@ -76,7 +73,6 @@ export class UserFormComponent implements OnInit {
       email: user.email
     });
 
-<<<<<<< HEAD
     /**
      * Popula o avatar do usuário, caso ele tenha cadastrado
      */
@@ -85,10 +81,6 @@ export class UserFormComponent implements OnInit {
         this.avatarUrl = this._sanitizer.bypassSecurityTrustUrl(res.file);
       });
     }
-=======
-    if (this.user.avatar && this.user.avatar != '')
-      this.avatarUrl = 'uploads/users/'.concat(this.user.avatar);
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
     Materialize.updateTextFields();
   }
@@ -101,24 +93,17 @@ export class UserFormComponent implements OnInit {
    */
   onSubmit() {
     this.formProcessing = true;
-<<<<<<< HEAD
     let user = new User(this.userForm.value as User);
-=======
-    var user = new User(this.userForm.value as User);
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
     if (this.avatarFile) {
       let formData: FormData = new FormData();
       formData.append('avatar', this.avatarFile, this.avatarFile.name);
 
       this._userService.uploadAvatar(formData).subscribe((data) => {
-<<<<<<< HEAD
         // remove o avatar antigo, caso tenha
         if (this.user.avatar)
           this.deleteAvatar(this.user.avatar);
 
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
         // Após upload com sucesso seta no objeto user o filename que veio do back-end 
         user.avatar = data.file.filename;
 
@@ -142,25 +127,17 @@ export class UserFormComponent implements OnInit {
     this._userService.updateAllNotPassword(user)
       .subscribe(res => {
         if (res) { // verifica se o cadadtro foi realizado com sucesso
-<<<<<<< HEAD
           this.user = new User(res);
           if(this.avatarFile) // atualiza a pagina apenas se tiver feito upload do avatar
             window.location.reload();
 
-=======
-          this.user = new User(res);          
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
           Materialize.toast(this._translate.instant('UPDATE-SUCCSESS'), 5000);
         }
       }, (err) => {
         if (this.avatarFile) // Como ocorreu um erro, a imagem que foi feita o upload deve ser removida
           this.deleteAvatar(user.avatar);
 
-<<<<<<< HEAD
         if (JSON.parse(err._body).codeError === 11000) // erro retornado quando o email a ser cadastrastado já existe na base de dados
-=======
-        if (JSON.parse(err._body).codeError == 11000) // erro retornado quando o email a ser cadastrastado já existe na base de dados
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
           return Materialize.toast(this._translate.instant('VALIDATION.USER-ALREADY-REGISTERED'), 7000);
 
         return Materialize.toast(this._translate.instant('ERROR-SERVER'), 5000);

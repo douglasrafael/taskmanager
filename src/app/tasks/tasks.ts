@@ -1,9 +1,6 @@
 import { TranslateService } from 'ng2-translate';
-<<<<<<< HEAD
 import { Server } from 'app/shared/constants/server';
 
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 import * as moment from 'moment';
 
 export class Tasks {
@@ -127,7 +124,6 @@ export class Tasks {
 
         return diff;
     }
-<<<<<<< HEAD
 
     /**
      * Monta a url completa para download do arquivo
@@ -139,6 +135,4 @@ export class Tasks {
     getUrlDownloadFile(): string {
         return Server.URL_BASE.concat('api/tasks/file/', this.file);
     }
-=======
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 }

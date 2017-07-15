@@ -3,27 +3,17 @@ import { RequestOptions, Http, Response, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { UserService } from 'app/user/user.service';
-<<<<<<< HEAD
 import { Tasks } from 'app/tasks/tasks';
 import { Server } from 'app/shared/constants/server';
-=======
-import { Tasks } from './tasks';
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class TasksService {
-<<<<<<< HEAD
   private URL = Server.URL_BASE;
   private headers: Headers;
   private options: RequestOptions;
-=======
-  private URL = 'http://localhost:3000';
-  headers: Headers;
-  options: RequestOptions;
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
   constructor(private _http: Http, private _userService: UserService) {
     this.headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8', 'Authorization': this._userService.getToken() });
@@ -38,11 +28,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   listAll(): Observable<Tasks[]> {
-<<<<<<< HEAD
     return this._http.get(this.URL + 'api/tasks/', this.options)
-=======
-    return this._http.get(this.URL + '/api/tasks/', this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map((res) => res.json() as Array<Tasks>)
       .catch(this.handleError);
   }
@@ -56,15 +42,9 @@ export class TasksService {
    * @memberOf TasksService
    */
   listFilter(param: string): Observable<Tasks[]> {
-<<<<<<< HEAD
     return this._http.get(this.URL + 'api/tasks/filter/'.concat(param), this.options)
       .map((res) => res.json() as Tasks[])
       .catch(this.handleError);
-=======
-    return this._http.get(this.URL + '/api/tasks/filter/'.concat(param), this.options)
-    .map((res) => res.json() as Tasks[])
-    .catch(this.handleError);
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
   }
 
   /**
@@ -76,11 +56,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   getById(id: string): Observable<Tasks> {
-<<<<<<< HEAD
     return this._http.get(this.URL + 'api/tasks/'.concat(id), this.options)
-=======
-    return this._http.get(this.URL + '/api/tasks/'.concat(id), this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map((res) => res.json() as Tasks)
       .catch(this.handleError);
   }
@@ -93,11 +69,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   getLabels(): Observable<any> {
-<<<<<<< HEAD
     return this._http.get(this.URL + 'api/tasks/labels/list', this.options)
-=======
-    return this._http.get(this.URL + '/api/tasks/labels/list', this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map((res) => res.json())
       .catch(this.handleError);
   }
@@ -109,11 +81,7 @@ export class TasksService {
    * @returns {Promise<boolean>} 
    */
   insert(task: Tasks): Promise<boolean> {
-<<<<<<< HEAD
     return this._http.post(this.URL + 'api/tasks', task, this.options)
-=======
-    return this._http.post(this.URL + '/api/tasks', task, this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .toPromise()
       .then((res: Response) => {
         if (res) return true;
@@ -130,11 +98,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   update(task: Tasks): Promise<boolean> {
-<<<<<<< HEAD
     return this._http.put(this.URL + 'api/tasks/'.concat(task._id), task, this.options)
-=======
-    return this._http.put(this.URL + '/api/tasks/'.concat(task._id), task, this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .toPromise()
       .then((res: Response) => {
         if (res) return true;
@@ -151,11 +115,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   remove(_id: string): Promise<Tasks> {
-<<<<<<< HEAD
     return this._http.delete(this.URL + 'api/tasks/'.concat(_id), this.options)
-=======
-    return this._http.delete(this.URL + '/api/tasks/'.concat(_id), this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .toPromise()
       .then((res: Response) => {
         if (res) return res.json() as Tasks;
@@ -173,16 +133,10 @@ export class TasksService {
    * @memberOf TasksService
    */
   uploadFile(formData: FormData): Observable<any> {
-<<<<<<< HEAD
     return this._http.post(this.URL + 'api/tasks/file', formData)
       .map((res) => {
         return res.json();
       }).catch(this.handleError);
-=======
-    return this._http.post(this.URL + '/api/tasks/upload/file', formData)
-      .map((res) => res.json())
-      .catch(this.handleError);
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
   }
 
   /**
@@ -194,11 +148,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   deleteFile(filename: string): Observable<any> {
-<<<<<<< HEAD
     return this._http.delete(this.URL + 'api/tasks/file/'.concat(filename), this.options)
-=======
-    return this._http.delete(this.URL + '/api/tasks/upload/file/'.concat(filename), this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => res)
       .catch(this.handleError);
   }
@@ -212,11 +162,7 @@ export class TasksService {
    * @memberOf TasksService
    */
   setDone(_id: string): Observable<boolean> {
-<<<<<<< HEAD
     return this._http.put(this.URL + 'api/tasks/setdone/'.concat(_id), {}, this.options)
-=======
-    return this._http.put(this.URL + '/api/tasks/setdone/'.concat(_id), {}, this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => res)
       .catch(this.handleError);
   }

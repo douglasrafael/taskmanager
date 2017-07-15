@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
-<<<<<<< HEAD
 import { User } from 'app/user/user';
 import { Server } from 'app/shared/constants/server';
 
@@ -18,17 +17,6 @@ export class UserService {
     this.headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
     this.options = new RequestOptions({ headers: this.headers });
   }
-=======
-import { User } from './user';
-
-@Injectable()
-export class UserService {
-  private URL = 'http://localhost:3000';
-  headers = new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
-  options = new RequestOptions({ headers: this.headers });
-
-  constructor(private _http: Http) { }
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 
   /**
    * Realiza login no sistema.
@@ -41,11 +29,7 @@ export class UserService {
    * @memberOf UserService
    */
   login(email: string, password: string, rememberme: boolean): Promise<User> {
-<<<<<<< HEAD
     return this._http.post(this.URL + 'api/users/authenticate', JSON.stringify({ email: email, password: password }), this.options)
-=======
-    return this._http.post(this.URL + '/api/users/authenticate', JSON.stringify({ email: email, password: password }), this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .toPromise()
       .then((response: Response) => {
         let user = response.json().user;
@@ -79,11 +63,7 @@ export class UserService {
    * @memberOf UserService
    */
   verifyPermission(email: string, password: string): Observable<boolean> {
-<<<<<<< HEAD
     return this._http.post(this.URL + 'api/users/authenticate', JSON.stringify({ email: email, password: password }), this.options)
-=======
-    return this._http.post(this.URL + '/api/users/authenticate', JSON.stringify({ email: email, password: password }), this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => {
         if (res) return true;
         return false;
@@ -99,7 +79,6 @@ export class UserService {
    * @memberOf UserService
    */
   uploadAvatar(formData: FormData): Observable<any> {
-<<<<<<< HEAD
     return this._http.post(this.URL + 'api/users/avatar', formData)
       .map((res) => {
         return res.json();
@@ -113,9 +92,6 @@ export class UserService {
    */
   getAvatar(filename: string): Observable<any> {
     return this._http.get(this.URL + 'api/users/avatar/'.concat(filename), this.options)
-=======
-    return this._http.post(this.URL + '/api/users/upload/avatar', formData)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map((res) => {
         return res.json();
       }).catch(this.handleError);
@@ -130,11 +106,7 @@ export class UserService {
    * @memberOf UserService
    */
   deleteAvatar(filename: string): Observable<any> {
-<<<<<<< HEAD
     return this._http.delete(this.URL + 'api/users/avatar/'.concat(filename), this.options)
-=======
-    return this._http.delete(this.URL + '/api/users/upload/avatar/'.concat(filename), this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => res)
       .catch(this.handleError);
   }
@@ -159,11 +131,7 @@ export class UserService {
   getUserLogged(): Observable<User> {
     this.setTokenHeader();
 
-<<<<<<< HEAD
     return this._http.get(this.URL + 'api/users', this.options)
-=======
-    return this._http.get(this.URL + '/api/users', this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map((res: Response) => {
         if (res) return res.json() as User;
 
@@ -178,11 +146,7 @@ export class UserService {
    * @returns {Promise<boolean>} 
    */
   signup(user: User): Promise<boolean> {
-<<<<<<< HEAD
     return this._http.post(this.URL + 'api/users/signup', user, this.options)
-=======
-    return this._http.post(this.URL + '/api/users/signup', user, this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .toPromise()
       .then((res: Response) => {
         if (res) return true;
@@ -204,11 +168,7 @@ export class UserService {
     this.setTokenHeader();
     user.password = null; // garantia que o password não será atualizado por esse método.
 
-<<<<<<< HEAD
     return this._http.put(this.URL + 'api/users', user, this.options)
-=======
-    return this._http.put(this.URL + '/api/users', user, this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => {
         if (res) return res.json() as User;
 
@@ -228,11 +188,7 @@ export class UserService {
   updatePassword(form: any): Observable<boolean> {
     this.setTokenHeader();
 
-<<<<<<< HEAD
     return this._http.put(this.URL + 'api/users/password', form, this.options)
-=======
-    return this._http.put(this.URL + '/api/users/password', form, this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => {
         if (res) return true;
         return false;
@@ -248,11 +204,7 @@ export class UserService {
    */
   delete(): Observable<boolean> {
     this.setTokenHeader();
-<<<<<<< HEAD
     return this._http.delete(this.URL + 'api/users', this.options)
-=======
-    return this._http.delete(this.URL + '/api/users', this.options)
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
       .map(res => {
         if (res) return true;
 

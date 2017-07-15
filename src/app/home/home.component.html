@@ -1,6 +1,5 @@
 <header class="navbar-fixed">
   <nav class="nav-extended">
-<<<<<<< HEAD
     <div class="hide-on-small-only img-beta">
       <img src="./assets/images/beta.png" alt="beta" width="100" height="100">
     </div>
@@ -8,12 +7,6 @@
     <div class="container">
 
       <div class="nav-wrapper">
-=======
-    <div class="container">
-
-      <div class="nav-wrapper">
-
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
         <a href="/" class="brand-logo">
           <i class="hide-on-med-and-down"><img src="./assets/images/ic_launcher_circle.png" width="60" alt="logo"></i>
           <span class="title-app">{{ 'APP-TITLE' | translate }}</span>
@@ -23,11 +16,7 @@
           <!-- Dropdown Trigger dropdown-bar -->
           <li>
             <a materialize="dropdown" [materializeParams]="paramsDropdown" class="dropdown-button" data-activates="dropdown-bar">
-<<<<<<< HEAD
               <img [src]="avatarSrc" width="40" class="left circle responsive-img" alt="user image">
-=======
-              <img [src]="user?.avatar ? avatarSrc : './assets/images/avatar.png'" width="40" class="left circle responsive-img" alt="user image">
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
               {{ user?.firstName }}
               <i class="material-icons right">arrow_drop_down</i>
             </a>
@@ -41,22 +30,14 @@
         </ul>
 
         <!-- Dropdown Trigger dropdown-notice -->
-<<<<<<< HEAD
         <a href='#' class="badge right bt-notice hide-on-med-and-down" materialize="dropdown" data-activates='dropdown-notice' [materializeParams]="paramsDropdown">
           <span *ngIf="alerts" class="badge-alert">{{ alerts?.length }}</span>
-=======
-        <a href='#' class="right bt-notice hide-on-med-and-down" materialize="dropdown" data-activates='dropdown-notice' [materializeParams]="paramsDropdown">
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
           <i class="fa fa-bell-o" aria-hidden="true"></i>
         </a>
         <!-- Dropdown Structure dropdown-notice -->
         <ul id='dropdown-notice' class='dropdown-content'>
           <li *ngFor="let task of alerts">
-<<<<<<< HEAD
             <a [routerLink]="['/tasks/edit', task._id]"> {{ task.title }} | {{ task.completionDateStr() }} </a>
-=======
-            <!--<a>{{ task.title }} | {{ task.completionDateStr() }} </a>-->
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
           </li>
         </ul>
 
@@ -79,36 +60,6 @@
   <div class="">
     <router-outlet></router-outlet>
   </div>
-<<<<<<< HEAD
-=======
-
-  <!--NAV RIGHT-->
-  <!--<div class="col s12 m12 l3 nav-right" [ngClass]="headerSmaller? 'smaller': ''">
-    <aside class="">
-      <div class="menu-right">
-        <div class="collection">
-          <a href="#" class="collection-item"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>{{ 'FOR-TODAY' | translate }}</a>
-          <a href="#" class="collection-item" [routerLink]="['/tasks/list']" routerLinkActive="active"><i class="fa fa-calendar active" aria-hidden="true"></i>{{ 'FOR-SEVEN-DAYS' | translate }}</a>
-          <a href="#" class="collection-item"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ 'OVERDUE' | translate }}</a>
-          <a href="#" class="collection-item"><i class="fa fa-archive" aria-hidden="true"></i>{{ 'ARCHIVED' | translate }}</a>
-          <a href="#" class="collection-item"><i class="fa fa-calendar-o" aria-hidden="true"></i>{{ 'ALL' | translate }}</a>
-        </div>
-      </div>
-
-      <ul class="tabs z-depth-1">
-        <li class="tab col s6"><a class="active" href="#tags">{{ 'TAGS' | translate }}</a></li>
-        <li class="tab col s6"><a class="" href="#alerts">{{ 'ALERTS' | translate }}</a></li>
-      </ul>
-
-      <div id="tags" class="z-depth-1 col s12 nav-right-content">
-        <a href=""><span class="badge-c grey">Testes</span></a>
-        <a href=""><span class="badge-c grey">UEPB</span></a>
-        <a href=""><span class="badge-c grey">5° Período</span></a>
-      </div>
-      <div id="alerts" class="z-depth-1 col s12 nav-right-content"></div>
-    </aside>
-  </div>-->
->>>>>>> fc42f5941063905486f73b9eb1cbd0ff6d7c6f46
 </div>
 
 <!--MENU FAB-->
