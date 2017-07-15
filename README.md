@@ -1,8 +1,8 @@
 # TASK MANAGER - Your task manager to do
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![node](https://img.shields.io/badge/node-v8.1.3-red.svg)](https://nodejs.org/) [![npm](https://img.shields.io/badge/npm-v5.0.3-red.svg)](https://nodejs.org/)
-<div align="center">
+
   ![Logo](https://github.com/faelsantos/taskmanager/blob/master/src/assets/images/ic_launcher_circle.png?raw=true)
-</div>
+
 
 ## DEMO 
 Go to [TaskManager](https://taskmanager-beta.herokuapp.com/)
