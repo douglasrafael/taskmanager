@@ -18,7 +18,6 @@ import { TranslateRenderModule } from 'app/translate/translate.render.module';
 import { ControlMessagesComponent } from 'app/validation/control-messages.component';
 import { ValidationModule } from 'app/validation/validation.module';
 import { SignupComponent } from 'app/signup/signup.component';
-import { HeaderComponent } from 'app/header/header.component';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { HeaderComponent } from 'app/header/header.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent,
-    HeaderComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

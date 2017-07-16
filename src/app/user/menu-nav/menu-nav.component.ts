@@ -6,8 +6,7 @@ import { UserService } from 'app/user/user.service';
 
 @Component({
   selector: 'menu-nav',
-  templateUrl: './menu-nav.component.html',
-  styleUrls: ['./menu-nav.component.scss']
+  templateUrl: './menu-nav.component.html'
 })
 export class MenuNavComponent implements OnInit {
   modalActions: EventEmitter<string | MaterializeAction>;

@@ -9,8 +9,7 @@ import * as moment from 'moment';
 
 @Component({
   selector: 'app-graphic-productivity',
-  templateUrl: './graphic-productivity.component.html',
-  styleUrls: ['./graphic-productivity.component.scss']
+  templateUrl: './graphic-productivity.component.html'
 })
 export class GraphicProductivityComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;

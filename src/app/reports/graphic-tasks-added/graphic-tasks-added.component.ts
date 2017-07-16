@@ -8,8 +8,7 @@ import * as moment from 'moment';
 
 @Component({
   selector: 'app-graphic-tasks-added',
-  templateUrl: './graphic-tasks-added.component.html',
-  styleUrls: ['./graphic-tasks-added.component.scss']
+  templateUrl: './graphic-tasks-added.component.html'
 })
 export class GraphicTasksAddedComponent implements OnInit {
   noDataMessage: any;
